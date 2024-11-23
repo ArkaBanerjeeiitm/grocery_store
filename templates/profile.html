@@ -1,0 +1,37 @@
+{%extends 'layout.html'%}
+
+{%block title%}Profile{%endblock%}
+
+{%block content%}
+       <h1 class="display-1">Hello 
+              <span class="text-muted">@{{user.name}}</span>
+       </h1>
+       <div class="profile-pic">
+           <img src="https://api.dicebear.com/9.x/lorelei/svg?seed={{user.username}}" alt="Profile Picture" width="100">
+       </div>
+       <a href="{{url_for('logout')}}" class="btn btn-danger">Logout</a>
+
+       <!--form to change and password and username-->
+       <form action="" method="post" class="form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{user.username}}">
+        </div>
+        <div class="mb-3">
+            <label for="cpassword" class="form-label">Current Password</label>
+            <input type="password"  name="cpassword" class="form-control" id="cpassword">
+        </div>
+        <div class="mb-3">
+              <label for="password" class="form-label">NewPassword</label>
+              <input type="password"  name="password" class="form-control" id="password">
+       </div>
+       <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" id="name" class="form-control" value="{{user.name}}">
+       </div>
+       <div class="mb-3">
+
+              <button type="submit" class="btn btn-primary">Update</button>
+       </div>
+       </form>
+{%endblock%}       
